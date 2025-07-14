@@ -1,5 +1,7 @@
 # 互動式流程模板 (Interactive Process Templates)
 
+[![MIT License](https://img.shields.io/badge/license-MIT-informational.svg)](./LICENSE)　
+
 ## 摘要 (Abstract)
 
 本專案提供了一系列互動式流程模板，旨在引導使用者透過與大型語言模型（LLM）的對話，逐步完成複雜的技術專案。每個模板都是一個結構化的 Markdown 文件，定義了特定領域（如：機器學習、網站開發）的標準作業流程。
