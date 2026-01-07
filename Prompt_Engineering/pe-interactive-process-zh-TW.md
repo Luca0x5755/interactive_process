@@ -1,27 +1,31 @@
 ```mermaid
 graph TD
-    subgraph "階段一：基礎策略 (Strategy & Scoping)"
-        A["1.定義任務與評估指標 (KPIs)"] --> B("2.選擇基礎模型<br/>e.g., Gemini, GPT, Claude");
-        B --> C{"3.設定超參數 (Hyperparameters)<br/>- Temperature<br/>- Top-P / Top-K<br/>- Max Output Tokens"};
+    %% 階段一：策略與定義
+    subgraph "Phase 1: Strategy & Scoping (策略與定義)"
+        A("1. 定義意圖 (Intent Definition)") --> B["2. 定義輸出結構<br/>(Markdown Structure)"];
+        B --> C{"3. 任務屬性分類<br/>(Task Classification)"};
     end
 
-    subgraph "階段二：提示詞架構 (Prompt Architecture)"
-        C --> D["4.設計提示詞原子元件<br/>- Persona (角色)<br/>- Context (上下文)<br/>- Instruction (指令)<br/>- Few-Shot Examples (範例)"];
-        D --> E{"5.選擇提示策略 (Prompting Strategy)"};
-        E -- 簡單任務 --> F[基礎模式<br/>Zero-Shot / Few-Shot];
-        E -- 複雜推理 --> G["進階推理模式<br/>- CoT (Chain of Thought)<br/>- Self-Consistency<br/>- Step-Back Prompting<br/>- ToT (Tree of Thoughts)"];
-        E -- 需外部工具/行動 --> H["代理模式 (Agentic Pattern)<br/>- ReAct (Reason+Act)"];
-        F --> I["6.設計輸出結構<br/>(e.g., JSON Schema)"];
-        G --> I;
-        H --> I;
+    %% 階段二：協議與結構構建 (根據屬性分流)
+    subgraph "Phase 2: Protocol Construction (協議與結構)"
+        C -- "重邏輯/數學/精確" --> D["4a. 推理協議 (Reasoning Protocol)<br/>(策略：Constraints)<br/>- 禁止思維鏈 (No CoT)<br/>- 嚴格限制條件"];
+
+        C -- "重生成/文案/風格" --> E["4b. 生成協議 (Generative Protocol)<br/>(策略：Enrichment)<br/>- XML 上下文封裝<br/>- 動態少樣本 (RAG-FewShot)<br/>- 顯式思維鏈 (Explicit CoT)"];
+
+        C -- "多步驟/外部工具" --> F["4c. 代理協議 (Agentic Protocol)<br/>(策略：Flow)<br/>- 定義節點與邊 (Nodes/Edges)<br/>- 監督者邏輯 (Supervisor)"];
+
+        D --> G["5. Markdown 強制層 (Formatting)<br/>- 定義標題層級 (#, ##)<br/>- 表格與清單規範<br/>- 代碼區塊 (Code Blocks)"];
+        E --> G;
+        F --> G;
     end
 
-    subgraph "階段三：迭代優化與評估 (Optimization & Evaluation)"
-        I --> J["7.執行與基準測試 (Benchmarking)"];
-        J --> K{"8.失敗模式分析 (Failure Pattern Analysis)"};
-        K -- 驗證通過 --> L["9.定版與部署 (Staging/Prod)"];
-        K -- 不符指標 --> M["10.優化與迭代<br/>- 手動調優 (Manual Refinement)<br/>- 自動化提示工程 (APE)"];
-        M --> D;
-        M --> C;
+    %% 階段三：評估閉環
+    subgraph "Phase 3: Optimization Loop (優化閉環)"
+        G --> H["6. 建立黃金數據集 (Golden Dataset)"];
+        H --> I["7. 執行模擬編譯 (DSPy Logic)"];
+        I --> J{"8. 裁判評估 (LLM-as-a-Judge)"};
+        J -- "Pass (Markdown Valid)" --> K("9. 交付提示詞");
+        J -- "Fail (Format Error)" --> L["10. 參數/範例迭代"];
+        L --> I;
     end
 ```
