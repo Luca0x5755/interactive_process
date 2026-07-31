@@ -21,9 +21,21 @@ This project provides a collection of interactive process templates designed to 
 
 ## 可用模板 (Available Templates)
 
-*   **[機器學習 (Machine Learning)](./ML/README.md)**
+*   **[機器學習 (Machine Learning)](./Machine_Learning/README.md)**
     *   一個端到端的機器學習專案流程，涵蓋從資料清理、特徵工程、模型訓練到部署的完整步驟。
     *   An end-to-end machine learning project workflow, covering the complete process from data cleaning, feature engineering, model training, to deployment.
+
+*   **[OpenCV 圖片分析 (OpenCV Image Analysis)](./OpenCV_Image_Analysis/README.md)**
+    *   使用 Python OpenCV 進行影像處理與分析的互動式流程。
+    *   An interactive workflow for image processing and analysis with Python OpenCV.
+
+*   **[提示工程 (Prompt Engineering)](./Prompt_Engineering/README.md)**
+    *   引導使用者依任務屬性構建符合最佳實踐的結構化提示詞。
+    *   Guides users to construct structured prompts following best practices for each task type.
+
+*   **[文件領航員 (Document Navigator)](./Document_Navigator/README.md)**
+    *   通用的「文件轉互動式流程」模板：針對任意上傳文件產生 mermaid 流程圖，並以嚴格引用文件內容的方式逐節點導覽。
+    *   A universal "document to interactive process" template: generates a mermaid flowchart for any uploaded document and guides you node by node with strictly cited information from the document.
 
 ---
 
