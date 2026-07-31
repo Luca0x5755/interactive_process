@@ -21,7 +21,7 @@ This project provides a collection of interactive process templates designed to 
 
 ## 可用模板 (Available Templates)
 
-*   **[機器學習 (Machine Learning)](./Machine_Learning/README.md)**
+*   **[機器學習 (Machine Learning)](./Machine_Learning/ML_interactive/0-0.README.md)**
     *   一個端到端的機器學習專案流程，涵蓋從資料清理、特徵工程、模型訓練到部署的完整步驟。
     *   An end-to-end machine learning project workflow, covering the complete process from data cleaning, feature engineering, model training, to deployment.
 
